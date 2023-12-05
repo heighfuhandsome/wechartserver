@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/xj/projects/distributedServer/build/server",
+  "command": "/usr/bin/clang++-6.0   -I/home/xj/projects/distributedServer/server -I/home/xj/projects/distributedServer/server/service -I/home/xj/projects/distributedServer/server/model -I/home/xj/projects/distributedServer/dbinc -I/home/xj/projects/distributedServer/server/model/orm  -g   -Wall -g -std=gnu++1z -o CMakeFiles/myServer.dir/main.cpp.o -c /home/xj/projects/distributedServer/server/main.cpp",
+  "file": "/home/xj/projects/distributedServer/server/main.cpp"
+},
+{
+  "directory": "/home/xj/projects/distributedServer/build/server",
+  "command": "/usr/bin/clang++-6.0   -I/home/xj/projects/distributedServer/server -I/home/xj/projects/distributedServer/server/service -I/home/xj/projects/distributedServer/server/model -I/home/xj/projects/distributedServer/dbinc -I/home/xj/projects/distributedServer/server/model/orm  -g   -Wall -g -std=gnu++1z -o CMakeFiles/myServer.dir/model/usermodel.cpp.o -c /home/xj/projects/distributedServer/server/model/usermodel.cpp",
+  "file": "/home/xj/projects/distributedServer/server/model/usermodel.cpp"
+},
+{
+  "directory": "/home/xj/projects/distributedServer/build/server",
+  "command": "/usr/bin/clang++-6.0   -I/home/xj/projects/distributedServer/server -I/home/xj/projects/distributedServer/server/service -I/home/xj/projects/distributedServer/server/model -I/home/xj/projects/distributedServer/dbinc -I/home/xj/projects/distributedServer/server/model/orm  -g   -Wall -g -std=gnu++1z -o CMakeFiles/myServer.dir/server.cpp.o -c /home/xj/projects/distributedServer/server/server.cpp",
+  "file": "/home/xj/projects/distributedServer/server/server.cpp"
+},
+{
+  "directory": "/home/xj/projects/distributedServer/build/server",
+  "command": "/usr/bin/clang++-6.0   -I/home/xj/projects/distributedServer/server -I/home/xj/projects/distributedServer/server/service -I/home/xj/projects/distributedServer/server/model -I/home/xj/projects/distributedServer/dbinc -I/home/xj/projects/distributedServer/server/model/orm  -g   -Wall -g -std=gnu++1z -o CMakeFiles/myServer.dir/service/service.cpp.o -c /home/xj/projects/distributedServer/server/service/service.cpp",
+  "file": "/home/xj/projects/distributedServer/server/service/service.cpp"
+}
+]

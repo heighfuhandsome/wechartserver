@@ -1,0 +1,10 @@
+{
+    "host"    : "hwy",
+    "user"    : "root",
+    "pwd"     : "340823XJnb.",
+    "db"      : "wechat",
+    "port"    : 3306,
+    "maxSize" : 128,
+    "minSize" : 8,
+    "timeout" :1000
+}

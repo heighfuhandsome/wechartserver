@@ -1,0 +1,5 @@
+/home/xj/projects/distributedServer/build/CMakeFiles/rebuild_cache.dir
+/home/xj/projects/distributedServer/build/CMakeFiles/edit_cache.dir
+/home/xj/projects/distributedServer/build/server/CMakeFiles/rebuild_cache.dir
+/home/xj/projects/distributedServer/build/server/CMakeFiles/edit_cache.dir
+/home/xj/projects/distributedServer/build/server/CMakeFiles/myServer.dir
