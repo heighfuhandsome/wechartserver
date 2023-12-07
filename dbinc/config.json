@@ -1,5 +1,5 @@
 {
-    "host"    : "123.60.11.91",
+    "host"    : "localhost",
     "user"    : "root",
     "pwd"     : "340823XJnb.",
     "db"      : "wechat",
