@@ -1,7 +1,7 @@
 #pragma once
 
 #include "orm/friend.hpp"
-#include "poll.hpp"
+#include "../../dbinc/poll.hpp"
 
 
 class Friendmodel{

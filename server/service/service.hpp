@@ -7,9 +7,9 @@
 #include <unordered_map>
 #include <unordered_map>
 #include <mutex>
-#include "usermodel.hpp"
-#include "offlinemsgmodel.hpp"
-#include "friendmodel.hpp"
+#include "../model/usermodel.hpp"
+#include "../model/offlinemsgmodel.hpp"
+#include "../model/friendmodel.hpp"
 
 
 

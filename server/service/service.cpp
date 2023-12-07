@@ -1,6 +1,5 @@
 #include "service.hpp"
-#include "offlinemsg.hpp"
-#include "public.hpp"
+#include "../public.hpp"
 
 #include <functional>
 #include <muduo/base/Logging.h>
@@ -40,7 +39,10 @@ void Service::reg(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timesta
 {
     LOG_INFO << "\nregister";
     User user;
-    LOG_INFO << jswriter.write(json);
+
+    //参数校验
+    if(json["account"].isNull() || json["password"].isNull() || json["account"].asString()=="" || json["password"].asString() == "")
+        sendResponse(ptr,RES_CODE::RES_CODE_FAILE,"incorrect parameter");
 
     // 判断该用户是否已经注册过
     if (userModel_.selectUserByAccount(user, json["account"].asString()))
