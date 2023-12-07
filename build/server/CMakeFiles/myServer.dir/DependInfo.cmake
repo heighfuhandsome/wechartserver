@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/xj/projects/distributedServer/server/server.cpp" "/home/xj/projects/distributedServer/build/server/CMakeFiles/myServer.dir/server.cpp.o"
   "/home/xj/projects/distributedServer/server/service/service.cpp" "/home/xj/projects/distributedServer/build/server/CMakeFiles/myServer.dir/service/service.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

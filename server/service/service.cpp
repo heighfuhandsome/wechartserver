@@ -6,8 +6,7 @@
 #include <json/json.h>
 #include <muduo/base/Logging.h>
 
-// 使用枚举来对应具体所要执行的function
-
+thread_local Json::FastWriter jswriter;
 Service &Service::getInstance()
 {
     static Service service;
@@ -31,74 +30,81 @@ Service::Service()
 {
     // 填充 serviceMapping_
     using namespace std::placeholders;
-    serviceMapping_.insert({static_cast<int>(REQ_CODE::REG), std::bind(&Service::reg, this, _1, _2, _3)});
-    serviceMapping_.insert({static_cast<int>(REQ_CODE::LOGIN), std::bind(&Service::login, this, _1, _2, _3)});
+    serviceMapping_.insert({static_cast<int>(REQ_CODE::REG_CODE_REG), std::bind(&Service::reg, this, _1, _2, _3)});
+    serviceMapping_.insert({static_cast<int>(REQ_CODE::REG_CODE_LOGIN), std::bind(&Service::login, this, _1, _2, _3)});
 }
 
 void Service::reg(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timestamp)
 {
     User user;
     Json::Value res;
-    Json::FastWriter jsonWriter;
-    
-
 
     // 判断该用户是否已经注册过
     if (userModel_.selectUserByAccount(user, json["account"].asString()))
     {
-        res["RES_CODE"] = static_cast<int>(RES_CODE::FAILE);
-        res["RES_STR"] = "该用户已经注册过";
-        ptr->send(jsonWriter.write(res));
+        sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "该用户已经注册过");
         return;
     }
 
-    //该用户还未注册
+    // 该用户还未注册
     user.setAccount(json["account"].asString());
     user.setPassword(json["password"].asString());
+    user.setNickname(json["nickname"].asString());
     if (userModel_.insert(user))
     {
-        res["RES_CODE"] = static_cast<int>(RES_CODE::OK);
-        res["RES_STR"] = "注册成功";
+        sendResponse(ptr, RES_CODE::RES_CODE_OK, "注册成功");
     }
     else
     {
-        res["RES_CODE"] = static_cast<int>(RES_CODE::FAILE);
-        res["RES_STR"] = "注册失败";
+        sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "注册失败");
     }
-    res["REQ_CODE"] = json["REQ_CODE"];
-    ptr->send(jsonWriter.write(res));
 }
 
 void Service::login(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timestamp)
 {
     User user;
     Json::Value res;
-    Json::FastWriter jsonWriter;
+    // 判断参数是否正确
 
-    //判断用户是否已注册过
-    if(userModel_.selectUserByAccount(user,json["account"].asString())){
-        //如果该账户存在则验证密码
+    // 判断用户是否已注册过
+    if (userModel_.selectUserByAccount(user, json["account"].asString()))
+    {
+        // 如果该账户存在则验证密码
         if (user.getPassword() == json["password"].asString())
         {
-            //密码正确
-            res["RES_CODE"] = static_cast<int>(RES_CODE::OK);
+            // 密码正确
             user.setOnline(true);
             userModel_.update(user);
             res["id"] = user.getId();
             res["nickname"] = user.getNickname();
             {
                 std::lock_guard guard(mutex_);
-                conns_.insert({user.getId(),ptr});
+                conns_.insert({user.getId(), ptr});
             }
-        }else{
-            res["RES_CODE"] = static_cast<int>(RES_CODE::FAILE);
-            res["RES_STR"] = "密码不正确";
+            sendResponse(ptr, RES_CODE::RES_CODE_OK, res);
         }
-    }else{
-        //该用户还未注册过
-        res["RES_CODE"] = static_cast<int>(RES_CODE::FAILE);
-        res["RES_STR"] = "该用户未注册";
+        else
+        {
+            sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "密码错误");
+        }
     }
-    res["REQ_CODE"] = json["REQ_CODE"];
-    ptr->send(jsonWriter.write(res));
+    else
+    {
+        // 该用户还未注册过
+        sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "账号不存在");
+    }
+}
+
+void Service::sendResponse(const TcpConnectionPtr &ptr, int rescode, const char *content)
+{
+    Json::Value res;
+    res["RES_CODE"] = rescode;
+    res["content"] = content;
+    ptr->send(jswriter.write(res));
+}
+
+void Service::sendResponse(const TcpConnectionPtr &ptr, int rescode, Json::Value &content)
+{
+    content["RES_CODE"] = rescode;
+    ptr->send(jswriter.write(content));
 }

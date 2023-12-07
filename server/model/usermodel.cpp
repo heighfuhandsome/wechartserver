@@ -22,7 +22,7 @@ bool Usermodel::selectUserByAccount(User &user, const std::string &account)
     sprintf(buff, "select * from user where account = %s;", account.c_str());
     int line;
     auto conn = connPoll_.getConn();
-    bool exists = conn->query(buff, &line);
+    if(!conn->query(buff, &line)) LOG_INFO << conn->getError();
     if (line == 0)
         return false;
     auto result = conn->next();

@@ -1,11 +1,11 @@
 #pragma once
 #include <string>
-enum class REQ_CODE:unsigned short{
-    REG, //注册请求
-    LOGIN, //登录请求
+enum REQ_CODE:unsigned short{
+    REG_CODE_REG, //注册请求
+    REG_CODE_LOGIN, //登录请求
 };
 
-enum class RES_CODE:unsigned short{
-    OK, 
-    FAILE 
+enum RES_CODE:unsigned short{
+    RES_CODE_OK, 
+    RES_CODE_FAILE 
 };

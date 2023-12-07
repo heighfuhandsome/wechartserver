@@ -60,15 +60,15 @@ include server/CMakeFiles/myServer.dir/flags.make
 server/CMakeFiles/myServer.dir/main.cpp.o: server/CMakeFiles/myServer.dir/flags.make
 server/CMakeFiles/myServer.dir/main.cpp.o: ../server/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object server/CMakeFiles/myServer.dir/main.cpp.o"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/main.cpp.o -c /home/xj/projects/distributedServer/server/main.cpp
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/main.cpp.o -c /home/xj/projects/distributedServer/server/main.cpp
 
 server/CMakeFiles/myServer.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myServer.dir/main.cpp.i"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/distributedServer/server/main.cpp > CMakeFiles/myServer.dir/main.cpp.i
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/distributedServer/server/main.cpp > CMakeFiles/myServer.dir/main.cpp.i
 
 server/CMakeFiles/myServer.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myServer.dir/main.cpp.s"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/distributedServer/server/main.cpp -o CMakeFiles/myServer.dir/main.cpp.s
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/distributedServer/server/main.cpp -o CMakeFiles/myServer.dir/main.cpp.s
 
 server/CMakeFiles/myServer.dir/main.cpp.o.requires:
 
@@ -84,15 +84,15 @@ server/CMakeFiles/myServer.dir/main.cpp.o.provides.build: server/CMakeFiles/mySe
 server/CMakeFiles/myServer.dir/model/usermodel.cpp.o: server/CMakeFiles/myServer.dir/flags.make
 server/CMakeFiles/myServer.dir/model/usermodel.cpp.o: ../server/model/usermodel.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object server/CMakeFiles/myServer.dir/model/usermodel.cpp.o"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/model/usermodel.cpp.o -c /home/xj/projects/distributedServer/server/model/usermodel.cpp
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/model/usermodel.cpp.o -c /home/xj/projects/distributedServer/server/model/usermodel.cpp
 
 server/CMakeFiles/myServer.dir/model/usermodel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myServer.dir/model/usermodel.cpp.i"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/distributedServer/server/model/usermodel.cpp > CMakeFiles/myServer.dir/model/usermodel.cpp.i
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/distributedServer/server/model/usermodel.cpp > CMakeFiles/myServer.dir/model/usermodel.cpp.i
 
 server/CMakeFiles/myServer.dir/model/usermodel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myServer.dir/model/usermodel.cpp.s"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/distributedServer/server/model/usermodel.cpp -o CMakeFiles/myServer.dir/model/usermodel.cpp.s
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/distributedServer/server/model/usermodel.cpp -o CMakeFiles/myServer.dir/model/usermodel.cpp.s
 
 server/CMakeFiles/myServer.dir/model/usermodel.cpp.o.requires:
 
@@ -108,15 +108,15 @@ server/CMakeFiles/myServer.dir/model/usermodel.cpp.o.provides.build: server/CMak
 server/CMakeFiles/myServer.dir/server.cpp.o: server/CMakeFiles/myServer.dir/flags.make
 server/CMakeFiles/myServer.dir/server.cpp.o: ../server/server.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object server/CMakeFiles/myServer.dir/server.cpp.o"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/server.cpp.o -c /home/xj/projects/distributedServer/server/server.cpp
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/server.cpp.o -c /home/xj/projects/distributedServer/server/server.cpp
 
 server/CMakeFiles/myServer.dir/server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myServer.dir/server.cpp.i"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/distributedServer/server/server.cpp > CMakeFiles/myServer.dir/server.cpp.i
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/distributedServer/server/server.cpp > CMakeFiles/myServer.dir/server.cpp.i
 
 server/CMakeFiles/myServer.dir/server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myServer.dir/server.cpp.s"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/distributedServer/server/server.cpp -o CMakeFiles/myServer.dir/server.cpp.s
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/distributedServer/server/server.cpp -o CMakeFiles/myServer.dir/server.cpp.s
 
 server/CMakeFiles/myServer.dir/server.cpp.o.requires:
 
@@ -132,15 +132,15 @@ server/CMakeFiles/myServer.dir/server.cpp.o.provides.build: server/CMakeFiles/my
 server/CMakeFiles/myServer.dir/service/service.cpp.o: server/CMakeFiles/myServer.dir/flags.make
 server/CMakeFiles/myServer.dir/service/service.cpp.o: ../server/service/service.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object server/CMakeFiles/myServer.dir/service/service.cpp.o"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/service/service.cpp.o -c /home/xj/projects/distributedServer/server/service/service.cpp
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/service/service.cpp.o -c /home/xj/projects/distributedServer/server/service/service.cpp
 
 server/CMakeFiles/myServer.dir/service/service.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myServer.dir/service/service.cpp.i"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/distributedServer/server/service/service.cpp > CMakeFiles/myServer.dir/service/service.cpp.i
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/distributedServer/server/service/service.cpp > CMakeFiles/myServer.dir/service/service.cpp.i
 
 server/CMakeFiles/myServer.dir/service/service.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myServer.dir/service/service.cpp.s"
-	cd /home/xj/projects/distributedServer/build/server && /usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/distributedServer/server/service/service.cpp -o CMakeFiles/myServer.dir/service/service.cpp.s
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/distributedServer/server/service/service.cpp -o CMakeFiles/myServer.dir/service/service.cpp.s
 
 server/CMakeFiles/myServer.dir/service/service.cpp.o.requires:
 
