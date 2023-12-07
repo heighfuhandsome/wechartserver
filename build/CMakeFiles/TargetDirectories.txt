@@ -1,5 +1,5 @@
-/home/xj/projects/distributedServer/build/CMakeFiles/rebuild_cache.dir
-/home/xj/projects/distributedServer/build/CMakeFiles/edit_cache.dir
-/home/xj/projects/distributedServer/build/server/CMakeFiles/rebuild_cache.dir
-/home/xj/projects/distributedServer/build/server/CMakeFiles/edit_cache.dir
-/home/xj/projects/distributedServer/build/server/CMakeFiles/myServer.dir
+/root/projects/wechartserver/build/CMakeFiles/edit_cache.dir
+/root/projects/wechartserver/build/CMakeFiles/rebuild_cache.dir
+/root/projects/wechartserver/build/server/CMakeFiles/myServer.dir
+/root/projects/wechartserver/build/server/CMakeFiles/edit_cache.dir
+/root/projects/wechartserver/build/server/CMakeFiles/rebuild_cache.dir

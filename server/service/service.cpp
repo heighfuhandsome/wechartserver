@@ -232,14 +232,16 @@ void Service::getOfflienMsg(const TcpConnectionPtr &ptr,Json::Value &json,muduo:
 
     auto msgs = offlinemsgmodel_.selectOfflinemsgById(json["id"].asUInt());
     Json::Value res;
+    Json::Value arr;
     for(const Offlinemsg &e:msgs)
     {
         Json::Value obj;
         obj["fromid"] = e.fromid_;
         obj["msg_type"] = e.msg_type_;
         obj["content"] = e.content_;
-        res.append(obj);
+        arr.append(obj);
     }
+    res["msg"] = arr;
     sendResponse(ptr,RES_CODE::RES_CODE_OK,res);
 }
 

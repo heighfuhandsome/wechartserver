@@ -30,7 +30,7 @@ std::vector<Offlinemsg> Offlinemsgmodel::selectOfflinemsgById(unsigned int id)
         msg.fromid_ = std::stoul(ret[0]);
         msg.toid_ = std::stoul(ret[1]);
         msg.msg_type_ = std::stoul(ret[2]);
-        msg.id_ = std::stoul(ret[3]);
+        msg.id_ = std::stoul(ret[4]);
         msg.content_ = ret[5];
         msg.datetime_ = ret[6];
         msg.accepted_ = true;

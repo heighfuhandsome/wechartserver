@@ -1,25 +1,19 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/xj/projects/distributedServer/server/main.cpp" "/home/xj/projects/distributedServer/build/server/CMakeFiles/myServer.dir/main.cpp.o"
-  "/home/xj/projects/distributedServer/server/model/friendmodel.cpp" "/home/xj/projects/distributedServer/build/server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o"
-  "/home/xj/projects/distributedServer/server/model/offlinemsgmodel.cpp" "/home/xj/projects/distributedServer/build/server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o"
-  "/home/xj/projects/distributedServer/server/model/usermodel.cpp" "/home/xj/projects/distributedServer/build/server/CMakeFiles/myServer.dir/model/usermodel.cpp.o"
-  "/home/xj/projects/distributedServer/server/server.cpp" "/home/xj/projects/distributedServer/build/server/CMakeFiles/myServer.dir/server.cpp.o"
-  "/home/xj/projects/distributedServer/server/service/service.cpp" "/home/xj/projects/distributedServer/build/server/CMakeFiles/myServer.dir/service/service.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../server"
-  "../server/service"
-  "../server/model"
-  "../dbinc"
-  "../server/model/orm"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/root/projects/wechartserver/server/main.cpp" "server/CMakeFiles/myServer.dir/main.cpp.o" "gcc" "server/CMakeFiles/myServer.dir/main.cpp.o.d"
+  "/root/projects/wechartserver/server/model/friendmodel.cpp" "server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o" "gcc" "server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o.d"
+  "/root/projects/wechartserver/server/model/offlinemsgmodel.cpp" "server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o" "gcc" "server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o.d"
+  "/root/projects/wechartserver/server/model/usermodel.cpp" "server/CMakeFiles/myServer.dir/model/usermodel.cpp.o" "gcc" "server/CMakeFiles/myServer.dir/model/usermodel.cpp.o.d"
+  "/root/projects/wechartserver/server/server.cpp" "server/CMakeFiles/myServer.dir/server.cpp.o" "gcc" "server/CMakeFiles/myServer.dir/server.cpp.o.d"
+  "/root/projects/wechartserver/server/service/service.cpp" "server/CMakeFiles/myServer.dir/service/service.cpp.o" "gcc" "server/CMakeFiles/myServer.dir/service/service.cpp.o.d"
   )
 
 # Targets to which this target links.
