@@ -1,5 +1,5 @@
 #include "server.hpp"
-#include "service.hpp"
+#include "service/service.hpp"
 #include "public.hpp"
 
 #include <functional>
@@ -35,6 +35,7 @@ void Server::onMessage(const TcpConnectionPtr &conn, Buffer *buff, muduo::Timest
     std::string msg = buff->retrieveAllAsString();
     Json::Value json;
     jsreader.parse(msg, json, false);
+    if(json["REQ_CODE"].isNull() || !json["REQ_CODE"].isInt()) return;
     Service &service = Service::getInstance();
     service.getHandler(json["REQ_CODE"].asInt())(conn, json, timeStamp);
 }

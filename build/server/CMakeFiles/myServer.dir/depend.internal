@@ -25,18 +25,18 @@ server/CMakeFiles/myServer.dir/model/usermodel.cpp.o
  /home/xj/projects/distributedServer/server/model/usermodel.cpp
  /home/xj/projects/distributedServer/server/model/usermodel.hpp
 server/CMakeFiles/myServer.dir/server.cpp.o
- ../dbinc/conn.hpp
- ../dbinc/poll.hpp
- ../server/model/friendmodel.hpp
- ../server/model/offlinemsgmodel.hpp
- ../server/model/orm/friend.hpp
- ../server/model/orm/offlinemsg.hpp
- ../server/model/orm/user.hpp
- ../server/model/usermodel.hpp
- ../server/service/service.hpp
+ /home/xj/projects/distributedServer/dbinc/conn.hpp
+ /home/xj/projects/distributedServer/dbinc/poll.hpp
+ /home/xj/projects/distributedServer/server/model/friendmodel.hpp
+ /home/xj/projects/distributedServer/server/model/offlinemsgmodel.hpp
+ /home/xj/projects/distributedServer/server/model/orm/friend.hpp
+ /home/xj/projects/distributedServer/server/model/orm/offlinemsg.hpp
+ /home/xj/projects/distributedServer/server/model/orm/user.hpp
+ /home/xj/projects/distributedServer/server/model/usermodel.hpp
  /home/xj/projects/distributedServer/server/public.hpp
  /home/xj/projects/distributedServer/server/server.cpp
  /home/xj/projects/distributedServer/server/server.hpp
+ /home/xj/projects/distributedServer/server/service/service.hpp
 server/CMakeFiles/myServer.dir/service/service.cpp.o
  /home/xj/projects/distributedServer/dbinc/conn.hpp
  /home/xj/projects/distributedServer/dbinc/poll.hpp

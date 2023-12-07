@@ -31,6 +31,7 @@ private:
     void reg(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
     void login(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
     void addFriend(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
+    void getOfflienMsg(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
 
     //向客户端发送响应
     void sendResponse(const TcpConnectionPtr &ptr,int rescode,const char *content);

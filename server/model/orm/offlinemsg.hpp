@@ -9,4 +9,5 @@ public:
     std::string content_;
     bool accepted_;
     unsigned int id_;
+    std::string datetime_;
 };

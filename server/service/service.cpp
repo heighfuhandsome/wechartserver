@@ -2,9 +2,12 @@
 #include "../public.hpp"
 
 #include <functional>
+#include <json/value.h>
+#include <json/writer.h>
 #include <muduo/base/Logging.h>
 #include <json/json.h>
 #include <muduo/base/Logging.h>
+#include <vector>
 
 thread_local Json::FastWriter jswriter;
 Service &Service::getInstance()
@@ -30,9 +33,10 @@ Service::Service()
 {
     // 填充 serviceMapping_
     using namespace std::placeholders;
-    serviceMapping_.insert({static_cast<int>(REQ_CODE::REG_CODE_REG), std::bind(&Service::reg, this, _1, _2, _3)});
-    serviceMapping_.insert({static_cast<int>(REQ_CODE::REG_CODE_LOGIN), std::bind(&Service::login, this, _1, _2, _3)});
-    serviceMapping_.insert({static_cast<int>(REQ_CODE::REG_CODE_ADDFRIEDN), std::bind(&Service::addFriend, this, _1, _2, _3)});
+    serviceMapping_.insert({REQ_CODE::REG_CODE_REG, std::bind(&Service::reg, this, _1, _2, _3)});
+    serviceMapping_.insert({REQ_CODE::REG_CODE_LOGIN, std::bind(&Service::login, this, _1, _2, _3)});
+    serviceMapping_.insert({REQ_CODE::REG_CODE_ADDFRIEDN, std::bind(&Service::addFriend, this, _1, _2, _3)});
+    serviceMapping_.insert({REQ_CODE::REG_CODE_GETOFFLINEMSG, std::bind(&Service::getOfflienMsg, this, _1, _2, _3)});
 }
 
 void Service::reg(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timestamp)
@@ -212,3 +216,35 @@ void Service::removeConn(const TcpConnectionPtr &ptr)
         LOG_INFO << "\n用户下线，id is " << id;
     }
 }
+
+
+
+
+
+void Service::getOfflienMsg(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp)
+{
+    //参数验证
+    if(json["id"].isNull() || !json["id"].isInt())
+    {
+        sendResponse(ptr,RES_CODE::RES_CODE_FAILE,"incorrect parameter");
+        return;
+    }
+
+    auto msgs = offlinemsgmodel_.selectOfflinemsgById(json["id"].asUInt());
+    Json::Value res;
+    for(const Offlinemsg &e:msgs)
+    {
+        Json::Value obj;
+        obj["fromid"] = e.fromid_;
+        obj["msg_type"] = e.msg_type_;
+        obj["content"] = e.content_;
+        res.append(obj);
+    }
+    sendResponse(ptr,RES_CODE::RES_CODE_OK,res);
+}
+
+
+
+
+
+
