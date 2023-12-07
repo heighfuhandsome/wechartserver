@@ -37,6 +37,7 @@ Service::Service()
     serviceMapping_.insert({REQ_CODE::REG_CODE_LOGIN, std::bind(&Service::login, this, _1, _2, _3)});
     serviceMapping_.insert({REQ_CODE::REG_CODE_ADDFRIEDN, std::bind(&Service::addFriend, this, _1, _2, _3)});
     serviceMapping_.insert({REQ_CODE::REG_CODE_GETOFFLINEMSG, std::bind(&Service::getOfflienMsg, this, _1, _2, _3)});
+    serviceMapping_.insert({REQ_CODE::REG_CODE_ACCEPTFRIEND, std::bind(&Service::acceptFriend, this, _1, _2, _3)});
 }
 
 void Service::reg(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timestamp)
@@ -209,10 +210,10 @@ void Service::removeConn(const TcpConnectionPtr &ptr)
             break;
         }
     }
-    user.setOnline(false);
-    userModel_.update(user);
     if (it != conns_.end())
     {
+        user.setOnline(false);
+        userModel_.update(user);
         LOG_INFO << "\n用户下线，id is " << id;
     }
 }
@@ -247,6 +248,27 @@ void Service::getOfflienMsg(const TcpConnectionPtr &ptr,Json::Value &json,muduo:
 
 
 
+void Service::acceptFriend(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp)
+{
+    LOG_INFO <<"\n" << "acceptFriend";
+    Friend f;
+    //参数验证
+    if(json["fromid"].isNull() || json["toid"].isNull() || json["agree"].isNull() ||  !json["fromid"].isInt() || !json["toid"].isInt() || !json["agree"].isBool())
+    {
+        sendResponse(ptr,RES_CODE::RES_CODE_FAILE,"incorrect parameter");
+        return;
+    }
+
+    //添加好友
+    if(json["agree"].asBool()){
+        f.myid_ = json["toid"].asUInt();
+        f.friendid_ = json["fromid"].asUInt();
+        f.remarks_ = json["remarks"].asString();
+        if(friendmodel_.insert(f)) sendResponse(ptr,RES_CODE::RES_CODE_OK,""); else sendResponse(ptr,RES_CODE::RES_CODE_FAILE,"fail");
+        return;
+    }
+    sendResponse(ptr,RES_CODE::RES_CODE_OK,"");
+}
 
 
 
