@@ -8,6 +8,8 @@
 #include <unordered_map>
 #include <mutex>
 #include "usermodel.hpp"
+#include "offlinemsgmodel.hpp"
+#include "friendmodel.hpp"
 
 
 
@@ -28,19 +30,19 @@ private:
     Service();
     void reg(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
     void login(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
-
+    void addFriend(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
 
     //向客户端发送响应
     void sendResponse(const TcpConnectionPtr &ptr,int rescode,const char *content);
     void sendResponse(const TcpConnectionPtr &ptr,int rescode,Json::Value &content);
-
-
-
-
     
-    std::unordered_map<int,serviceFunc> serviceMapping_;
     Usermodel userModel_;
+    Friendmodel friendmodel_;
+    Offlinemsgmodel offlinemsgmodel_;
 
     std::mutex mutex_;
     std::unordered_map<int,TcpConnectionPtr> conns_;
+    std::unordered_map<int,serviceFunc> serviceMapping_;
+
+
 };

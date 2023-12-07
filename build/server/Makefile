@@ -152,6 +152,60 @@ main.cpp.s:
 	cd /home/xj/projects/distributedServer/build && $(MAKE) -f server/CMakeFiles/myServer.dir/build.make server/CMakeFiles/myServer.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+model/friendmodel.o: model/friendmodel.cpp.o
+
+.PHONY : model/friendmodel.o
+
+# target to build an object file
+model/friendmodel.cpp.o:
+	cd /home/xj/projects/distributedServer/build && $(MAKE) -f server/CMakeFiles/myServer.dir/build.make server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o
+.PHONY : model/friendmodel.cpp.o
+
+model/friendmodel.i: model/friendmodel.cpp.i
+
+.PHONY : model/friendmodel.i
+
+# target to preprocess a source file
+model/friendmodel.cpp.i:
+	cd /home/xj/projects/distributedServer/build && $(MAKE) -f server/CMakeFiles/myServer.dir/build.make server/CMakeFiles/myServer.dir/model/friendmodel.cpp.i
+.PHONY : model/friendmodel.cpp.i
+
+model/friendmodel.s: model/friendmodel.cpp.s
+
+.PHONY : model/friendmodel.s
+
+# target to generate assembly for a file
+model/friendmodel.cpp.s:
+	cd /home/xj/projects/distributedServer/build && $(MAKE) -f server/CMakeFiles/myServer.dir/build.make server/CMakeFiles/myServer.dir/model/friendmodel.cpp.s
+.PHONY : model/friendmodel.cpp.s
+
+model/offlinemsgmodel.o: model/offlinemsgmodel.cpp.o
+
+.PHONY : model/offlinemsgmodel.o
+
+# target to build an object file
+model/offlinemsgmodel.cpp.o:
+	cd /home/xj/projects/distributedServer/build && $(MAKE) -f server/CMakeFiles/myServer.dir/build.make server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o
+.PHONY : model/offlinemsgmodel.cpp.o
+
+model/offlinemsgmodel.i: model/offlinemsgmodel.cpp.i
+
+.PHONY : model/offlinemsgmodel.i
+
+# target to preprocess a source file
+model/offlinemsgmodel.cpp.i:
+	cd /home/xj/projects/distributedServer/build && $(MAKE) -f server/CMakeFiles/myServer.dir/build.make server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.i
+.PHONY : model/offlinemsgmodel.cpp.i
+
+model/offlinemsgmodel.s: model/offlinemsgmodel.cpp.s
+
+.PHONY : model/offlinemsgmodel.s
+
+# target to generate assembly for a file
+model/offlinemsgmodel.cpp.s:
+	cd /home/xj/projects/distributedServer/build && $(MAKE) -f server/CMakeFiles/myServer.dir/build.make server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.s
+.PHONY : model/offlinemsgmodel.cpp.s
+
 model/usermodel.o: model/usermodel.cpp.o
 
 .PHONY : model/usermodel.o
@@ -245,6 +299,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... model/friendmodel.o"
+	@echo "... model/friendmodel.i"
+	@echo "... model/friendmodel.s"
+	@echo "... model/offlinemsgmodel.o"
+	@echo "... model/offlinemsgmodel.i"
+	@echo "... model/offlinemsgmodel.s"
 	@echo "... model/usermodel.o"
 	@echo "... model/usermodel.i"
 	@echo "... model/usermodel.s"

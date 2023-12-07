@@ -81,9 +81,57 @@ server/CMakeFiles/myServer.dir/main.cpp.o.provides: server/CMakeFiles/myServer.d
 server/CMakeFiles/myServer.dir/main.cpp.o.provides.build: server/CMakeFiles/myServer.dir/main.cpp.o
 
 
+server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o: server/CMakeFiles/myServer.dir/flags.make
+server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o: ../server/model/friendmodel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o"
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/model/friendmodel.cpp.o -c /home/xj/projects/distributedServer/server/model/friendmodel.cpp
+
+server/CMakeFiles/myServer.dir/model/friendmodel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myServer.dir/model/friendmodel.cpp.i"
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/distributedServer/server/model/friendmodel.cpp > CMakeFiles/myServer.dir/model/friendmodel.cpp.i
+
+server/CMakeFiles/myServer.dir/model/friendmodel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myServer.dir/model/friendmodel.cpp.s"
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/distributedServer/server/model/friendmodel.cpp -o CMakeFiles/myServer.dir/model/friendmodel.cpp.s
+
+server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o.requires:
+
+.PHONY : server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o.requires
+
+server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o.provides: server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o.requires
+	$(MAKE) -f server/CMakeFiles/myServer.dir/build.make server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o.provides.build
+.PHONY : server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o.provides
+
+server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o.provides.build: server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o
+
+
+server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o: server/CMakeFiles/myServer.dir/flags.make
+server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o: ../server/model/offlinemsgmodel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o"
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o -c /home/xj/projects/distributedServer/server/model/offlinemsgmodel.cpp
+
+server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.i"
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/distributedServer/server/model/offlinemsgmodel.cpp > CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.i
+
+server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.s"
+	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/distributedServer/server/model/offlinemsgmodel.cpp -o CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.s
+
+server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o.requires:
+
+.PHONY : server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o.requires
+
+server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o.provides: server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o.requires
+	$(MAKE) -f server/CMakeFiles/myServer.dir/build.make server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o.provides.build
+.PHONY : server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o.provides
+
+server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o.provides.build: server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o
+
+
 server/CMakeFiles/myServer.dir/model/usermodel.cpp.o: server/CMakeFiles/myServer.dir/flags.make
 server/CMakeFiles/myServer.dir/model/usermodel.cpp.o: ../server/model/usermodel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object server/CMakeFiles/myServer.dir/model/usermodel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object server/CMakeFiles/myServer.dir/model/usermodel.cpp.o"
 	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/model/usermodel.cpp.o -c /home/xj/projects/distributedServer/server/model/usermodel.cpp
 
 server/CMakeFiles/myServer.dir/model/usermodel.cpp.i: cmake_force
@@ -107,7 +155,7 @@ server/CMakeFiles/myServer.dir/model/usermodel.cpp.o.provides.build: server/CMak
 
 server/CMakeFiles/myServer.dir/server.cpp.o: server/CMakeFiles/myServer.dir/flags.make
 server/CMakeFiles/myServer.dir/server.cpp.o: ../server/server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object server/CMakeFiles/myServer.dir/server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object server/CMakeFiles/myServer.dir/server.cpp.o"
 	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/server.cpp.o -c /home/xj/projects/distributedServer/server/server.cpp
 
 server/CMakeFiles/myServer.dir/server.cpp.i: cmake_force
@@ -131,7 +179,7 @@ server/CMakeFiles/myServer.dir/server.cpp.o.provides.build: server/CMakeFiles/my
 
 server/CMakeFiles/myServer.dir/service/service.cpp.o: server/CMakeFiles/myServer.dir/flags.make
 server/CMakeFiles/myServer.dir/service/service.cpp.o: ../server/service/service.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object server/CMakeFiles/myServer.dir/service/service.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object server/CMakeFiles/myServer.dir/service/service.cpp.o"
 	cd /home/xj/projects/distributedServer/build/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myServer.dir/service/service.cpp.o -c /home/xj/projects/distributedServer/server/service/service.cpp
 
 server/CMakeFiles/myServer.dir/service/service.cpp.i: cmake_force
@@ -156,6 +204,8 @@ server/CMakeFiles/myServer.dir/service/service.cpp.o.provides.build: server/CMak
 # Object files for target myServer
 myServer_OBJECTS = \
 "CMakeFiles/myServer.dir/main.cpp.o" \
+"CMakeFiles/myServer.dir/model/friendmodel.cpp.o" \
+"CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o" \
 "CMakeFiles/myServer.dir/model/usermodel.cpp.o" \
 "CMakeFiles/myServer.dir/server.cpp.o" \
 "CMakeFiles/myServer.dir/service/service.cpp.o"
@@ -164,12 +214,14 @@ myServer_OBJECTS = \
 myServer_EXTERNAL_OBJECTS =
 
 server/myServer: server/CMakeFiles/myServer.dir/main.cpp.o
+server/myServer: server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o
+server/myServer: server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o
 server/myServer: server/CMakeFiles/myServer.dir/model/usermodel.cpp.o
 server/myServer: server/CMakeFiles/myServer.dir/server.cpp.o
 server/myServer: server/CMakeFiles/myServer.dir/service/service.cpp.o
 server/myServer: server/CMakeFiles/myServer.dir/build.make
 server/myServer: server/CMakeFiles/myServer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable myServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xj/projects/distributedServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable myServer"
 	cd /home/xj/projects/distributedServer/build/server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/myServer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -178,6 +230,8 @@ server/CMakeFiles/myServer.dir/build: server/myServer
 .PHONY : server/CMakeFiles/myServer.dir/build
 
 server/CMakeFiles/myServer.dir/requires: server/CMakeFiles/myServer.dir/main.cpp.o.requires
+server/CMakeFiles/myServer.dir/requires: server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o.requires
+server/CMakeFiles/myServer.dir/requires: server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o.requires
 server/CMakeFiles/myServer.dir/requires: server/CMakeFiles/myServer.dir/model/usermodel.cpp.o.requires
 server/CMakeFiles/myServer.dir/requires: server/CMakeFiles/myServer.dir/server.cpp.o.requires
 server/CMakeFiles/myServer.dir/requires: server/CMakeFiles/myServer.dir/service/service.cpp.o.requires

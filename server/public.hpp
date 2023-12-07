@@ -10,3 +10,9 @@ enum RES_CODE:unsigned short{
     RES_CODE_OK, 
     RES_CODE_FAILE 
 };
+
+
+enum MSG_TYPE:unsigned int{
+    MSG_TYPE_NORMAL,  
+    MSG_TYPE_ADDFRIEND
+};

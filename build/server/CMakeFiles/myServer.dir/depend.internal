@@ -6,6 +6,18 @@ server/CMakeFiles/myServer.dir/main.cpp.o
  ../dbinc/poll.hpp
  /home/xj/projects/distributedServer/server/main.cpp
  /home/xj/projects/distributedServer/server/server.hpp
+server/CMakeFiles/myServer.dir/model/friendmodel.cpp.o
+ ../dbinc/conn.hpp
+ ../dbinc/poll.hpp
+ /home/xj/projects/distributedServer/server/model/friendmodel.cpp
+ /home/xj/projects/distributedServer/server/model/friendmodel.hpp
+ /home/xj/projects/distributedServer/server/model/orm/friend.hpp
+server/CMakeFiles/myServer.dir/model/offlinemsgmodel.cpp.o
+ ../dbinc/conn.hpp
+ ../dbinc/poll.hpp
+ /home/xj/projects/distributedServer/server/model/offlinemsgmodel.cpp
+ /home/xj/projects/distributedServer/server/model/offlinemsgmodel.hpp
+ /home/xj/projects/distributedServer/server/model/orm/offlinemsg.hpp
 server/CMakeFiles/myServer.dir/model/usermodel.cpp.o
  ../dbinc/conn.hpp
  ../dbinc/poll.hpp
@@ -15,6 +27,10 @@ server/CMakeFiles/myServer.dir/model/usermodel.cpp.o
 server/CMakeFiles/myServer.dir/server.cpp.o
  ../dbinc/conn.hpp
  ../dbinc/poll.hpp
+ ../server/model/friendmodel.hpp
+ ../server/model/offlinemsgmodel.hpp
+ ../server/model/orm/friend.hpp
+ ../server/model/orm/offlinemsg.hpp
  ../server/model/orm/user.hpp
  ../server/model/usermodel.hpp
  ../server/service/service.hpp
@@ -24,6 +40,10 @@ server/CMakeFiles/myServer.dir/server.cpp.o
 server/CMakeFiles/myServer.dir/service/service.cpp.o
  ../dbinc/conn.hpp
  ../dbinc/poll.hpp
+ ../server/model/friendmodel.hpp
+ ../server/model/offlinemsgmodel.hpp
+ ../server/model/orm/friend.hpp
+ ../server/model/orm/offlinemsg.hpp
  ../server/model/orm/user.hpp
  ../server/model/usermodel.hpp
  ../server/public.hpp
