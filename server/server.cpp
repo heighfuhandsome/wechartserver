@@ -7,6 +7,9 @@
 #include <thread>
 #include <muduo/base/Logging.h>
 
+
+thread_local Json::Reader jsreader;
+
 InetAddress createListenAddr(int port)
 {
     return InetAddress(port);
@@ -29,10 +32,9 @@ void Server::start()
 
 void Server::onMessage(const TcpConnectionPtr &conn, Buffer *buff, muduo::Timestamp timeStamp)
 {
-    std::string msg = std::move(buff->retrieveAllAsString());
-    Json::Reader jsonReader;
+    std::string msg = buff->retrieveAllAsString();
     Json::Value json;
-    jsonReader.parse(msg, json, false);
+    jsreader.parse(msg, json, false);
     Service &service = Service::getInstance();
     service.getHandler(json["REQ_CODE"].asInt())(conn, json, timeStamp);
 }
@@ -41,5 +43,6 @@ void Server::onConnect(const TcpConnectionPtr &conn)
 {
     if (!conn->connected())
     {
+        Service::getInstance().removeConn(conn);
     }
 }

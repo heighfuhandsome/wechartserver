@@ -7,6 +7,7 @@
 class Usermodel{
 public:
     Usermodel() : connPoll_(mysql::Poll::getInstance()){}
+    ~Usermodel() = default;
     bool insert(const User &user);
     bool selectUserByAccount(User &,const std::string &); //通过账号查询user
     bool update(const User &user);

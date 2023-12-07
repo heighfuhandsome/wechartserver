@@ -21,6 +21,8 @@ public:
     static Service& getInstance();
     //拿到接口处理函数
     serviceFunc getHandler(int id);
+    //用户下线
+    void removeConn(const TcpConnectionPtr &ptr);
     ~Service() = default;
 private:
     Service();
@@ -31,6 +33,8 @@ private:
     //向客户端发送响应
     void sendResponse(const TcpConnectionPtr &ptr,int rescode,const char *content);
     void sendResponse(const TcpConnectionPtr &ptr,int rescode,Json::Value &content);
+
+
 
 
     

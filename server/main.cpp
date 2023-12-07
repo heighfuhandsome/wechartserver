@@ -1,8 +1,9 @@
 #include "server.hpp"
 #include "poll.hpp"
-int main(){
-    mysql::Poll::libraryInit("/home/xj/projects/distributedServer/dbinc/config.json");
-    Server s(8080,"ChatServer");
+int main(int argc,char **argv){
+    mysql::Poll::libraryInit(argv[1]);
+    std::cout << mysql::Poll::getInstance().getCoonNum() << std::endl;
+    Server s(80,"ChatServer");
     s.start();
     return 0;
 }

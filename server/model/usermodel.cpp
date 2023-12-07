@@ -5,15 +5,14 @@
 #include <algorithm>
 #include <string>
 
-thread_local std::stringstream ss;
 bool Usermodel::insert(const User &user)
 {
+    char buff[128]{0};
+    sprintf(buff,"insert user(account,password,nickname,online) values('%s','%s','%s',0);",user.getAccount().c_str(),user.getPassword().c_str(),user.getNickname().c_str());
     auto conn = connPoll_.getConn();
-    ss.clear();
-    ss << "insert user (account,password,online) values('" << user.getAccount() << "',"
-       << "'" << user.getPassword() << "',0);";
     int line;
-    return conn->insert(ss.str(), &line);
+    if(!conn->insert(buff, &line)) LOG_INFO << conn->getError();
+    return line>0;
 }
 
 bool Usermodel::selectUserByAccount(User &user, const std::string &account)
@@ -33,10 +32,10 @@ bool Usermodel::selectUserByAccount(User &user, const std::string &account)
 bool Usermodel::update(const User &user)
 {
     char buff[128]{0};
-    sprintf(buff, "update set password='%s',nickname='%s',online=%d;", user.getPassword().c_str(), user.getNickname().c_str(), user.isOnline());
+    sprintf(buff, "update user set password='%s',nickname='%s',online=%d where id=%u;", user.getPassword().c_str(), user.getNickname().c_str(), (int)user.isOnline(),user.getId());
     auto conn = connPoll_.getConn();
     int line;
-    conn->update(buff, &line);
+    if(!conn->update(buff, &line)) LOG_INFO << conn->getError();
     return line > 0 ? true : false;
 }
 

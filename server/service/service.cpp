@@ -36,13 +36,14 @@ Service::Service()
 
 void Service::reg(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timestamp)
 {
+    LOG_INFO <<"\nregister";
     User user;
-    Json::Value res;
+    LOG_INFO << jswriter.write(json);
 
     // 判断该用户是否已经注册过
     if (userModel_.selectUserByAccount(user, json["account"].asString()))
     {
-        sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "该用户已经注册过");
+        sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "account is exists");
         return;
     }
 
@@ -52,23 +53,37 @@ void Service::reg(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timesta
     user.setNickname(json["nickname"].asString());
     if (userModel_.insert(user))
     {
-        sendResponse(ptr, RES_CODE::RES_CODE_OK, "注册成功");
+        sendResponse(ptr, RES_CODE::RES_CODE_OK, "register success");
     }
     else
     {
-        sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "注册失败");
+        sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "register fail");
     }
 }
 
 void Service::login(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timestamp)
 {
+    LOG_INFO <<"login";
     User user;
     Json::Value res;
     // 判断参数是否正确
+    if (json["account"].isNull() || json["password"].isNull() || json["account"].asString()=="" || json["password"].asString()=="")
+    {
+        sendResponse(ptr,RES_CODE::RES_CODE_FAILE,"incorrect parameter");
+        return;
+    }
+    
 
     // 判断用户是否已注册过
     if (userModel_.selectUserByAccount(user, json["account"].asString()))
     {
+        //判断该用户是否在线
+        if(user.isOnline())
+        {
+            sendResponse(ptr,RES_CODE::RES_CODE_FAILE,"no repeat logins");
+            return;
+        }
+
         // 如果该账户存在则验证密码
         if (user.getPassword() == json["password"].asString())
         {
@@ -80,18 +95,19 @@ void Service::login(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Times
             {
                 std::lock_guard guard(mutex_);
                 conns_.insert({user.getId(), ptr});
+                LOG_INFO <<"\n用户上线，id is " << user.getId();
             }
             sendResponse(ptr, RES_CODE::RES_CODE_OK, res);
         }
         else
         {
-            sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "密码错误");
+            sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "incorrect pawword");
         }
     }
     else
     {
         // 该用户还未注册过
-        sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "账号不存在");
+        sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "please register first");
     }
 }
 
@@ -107,4 +123,27 @@ void Service::sendResponse(const TcpConnectionPtr &ptr, int rescode, Json::Value
 {
     content["RES_CODE"] = rescode;
     ptr->send(jswriter.write(content));
+}
+
+void Service::removeConn(const TcpConnectionPtr &ptr)
+{
+    unsigned id;
+    User user;
+    auto it = conns_.begin();
+    for(it = conns_.begin();it!=conns_.end();it++)
+    {
+        if(it->second.get() == ptr.get())
+        {
+            userModel_.selectUserById(user,it->first);
+            id = user.getId();
+            conns_.erase(it);
+            break;
+        }
+    }
+    user.setOnline(false);
+    userModel_.update(user);
+    if(it!=conns_.end())
+    {
+        LOG_INFO <<"\n用户下线，id is " << id;
+    }
 }
