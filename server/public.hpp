@@ -7,7 +7,7 @@ enum REQ_CODE:unsigned short{
     REG_CODE_GETOFFLINEMSG, //添加好友请求
     REG_CODE_ACCEPTFRIEND, //接受/拒绝 好友请求
     REG_CODE_GETFRIENDLIST, //获取好友列表
-
+    RES_CODE_SENDMSGTOFRIEND, // 向指定好友发送消息
 };
 
 enum RES_CODE:unsigned short{
