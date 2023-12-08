@@ -6,7 +6,7 @@
 #include <json/writer.h>
 #include <muduo/base/Logging.h>
 #include <json/json.h>
-#include <muduo/base/Logging.h>
+#include <muduo/net/Callbacks.h>
 #include <vector>
 
 thread_local Json::FastWriter jswriter;
@@ -38,6 +38,7 @@ Service::Service()
     serviceMapping_.insert({REQ_CODE::REG_CODE_ADDFRIEDN, std::bind(&Service::addFriend, this, _1, _2, _3)});
     serviceMapping_.insert({REQ_CODE::REG_CODE_GETOFFLINEMSG, std::bind(&Service::getOfflienMsg, this, _1, _2, _3)});
     serviceMapping_.insert({REQ_CODE::REG_CODE_ACCEPTFRIEND, std::bind(&Service::acceptFriend, this, _1, _2, _3)});
+    serviceMapping_.insert({REQ_CODE::REG_CODE_GETFRIENDLIST, std::bind(&Service::getFriendList, this, _1, _2, _3)});
 }
 
 void Service::reg(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timestamp)
@@ -72,7 +73,7 @@ void Service::reg(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timesta
 
 void Service::login(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timestamp)
 {
-    LOG_INFO << "login";
+    LOG_INFO << "\nlogin";
     User user;
     Json::Value res;
     // 判断参数是否正确
@@ -121,6 +122,7 @@ void Service::login(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Times
 
 void Service::addFriend(const TcpConnectionPtr &ptr, Json::Value &json, muduo::Timestamp)
 {
+    LOG_INFO << "\naddFriend";
     User user;
     Friend fd;
     // 参数判断
@@ -129,6 +131,8 @@ void Service::addFriend(const TcpConnectionPtr &ptr, Json::Value &json, muduo::T
         sendResponse(ptr, RES_CODE::RES_CODE_FAILE, "incorrect parameter");
         return;
     }
+
+    if( !userIsOnline(json["id"].asUInt(),ptr)) return;
 
     // 判断需要添加的好友是否存在
     if (!userModel_.selectUserByAccount(user,json["account"].asString()))
@@ -224,12 +228,14 @@ void Service::removeConn(const TcpConnectionPtr &ptr)
 
 void Service::getOfflienMsg(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp)
 {
+    LOG_INFO <<"\n" << "getOfflineMsg";
     //参数验证
     if(json["id"].isNull() || !json["id"].isInt())
     {
         sendResponse(ptr,RES_CODE::RES_CODE_FAILE,"incorrect parameter");
         return;
     }
+    if(!userIsOnline(json["id"].asUInt(),ptr)) return;
 
     auto msgs = offlinemsgmodel_.selectOfflinemsgById(json["id"].asUInt());
     Json::Value res;
@@ -240,6 +246,7 @@ void Service::getOfflienMsg(const TcpConnectionPtr &ptr,Json::Value &json,muduo:
         obj["fromid"] = e.fromid_;
         obj["msg_type"] = e.msg_type_;
         obj["content"] = e.content_;
+        obj["datetime"] = e.datetime_;
         arr.append(obj);
     }
     res["msg"] = arr;
@@ -259,6 +266,7 @@ void Service::acceptFriend(const TcpConnectionPtr &ptr,Json::Value &json,muduo::
         return;
     }
 
+    if( !userIsOnline(json["toid"].asUInt(),ptr)) return;
     //添加好友
     if(json["agree"].asBool()){
         f.myid_ = json["toid"].asUInt();
@@ -272,3 +280,42 @@ void Service::acceptFriend(const TcpConnectionPtr &ptr,Json::Value &json,muduo::
 
 
 
+bool Service::userIsOnline(unsigned int id,const TcpConnectionPtr &ptr)
+{
+    User user;
+    if(userModel_.selectUserById(user,id) && user.isOnline())
+    {
+        return true;
+    }
+    sendResponse(ptr,RES_CODE::RES_CODE_FAILE,"please login first");
+    return false;
+}
+
+
+void Service::getFriendList(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp)
+{
+    LOG_INFO << "\ngetFriendList";
+    unsigned int id;
+    User user;
+    //参数验证
+    if(json["id"].isNull() || !json["id"].isInt())
+    {
+        sendResponse(ptr,RES_CODE::RES_CODE_FAILE,"incorrect parameter");
+        return;
+    }
+    id = json["id"].asUInt();
+    if(!userIsOnline(id,ptr)) return;
+    std::vector<Friend> friends = friendmodel_.selectFriendsById(id);
+    Json::Value res;
+    Json::Value array;
+    for(const Friend &f: friends) {
+        Json::Value obj;
+        obj["id"] = f.friendid_;
+        userModel_.selectUserById(user,f.friendid_);
+        obj["account"] = user.getAccount();
+        obj["remarks"] = f.remarks_;
+        array.append(obj);
+    }
+    res["friends"] = array;
+    sendResponse(ptr,RES_CODE::RES_CODE_OK,res);
+}

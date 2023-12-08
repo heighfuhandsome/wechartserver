@@ -1,4 +1,6 @@
 #include "friendmodel.hpp"
+#include "orm/friend.hpp"
+#include <algorithm>
 #include <cstdio>
 #include <muduo/base/Logging.h>
 bool Friendmodel::isMyfriend(const Friend &my)
@@ -20,4 +22,23 @@ bool Friendmodel::insert(const Friend &obj)
     auto conn = connPoll_.getConn();
     if(!conn->insert(buff,&line)) LOG_INFO <<"\n" <<conn->getError();
     return line>0;
+}
+
+std::vector<Friend> Friendmodel::selectFriendsById(unsigned int id)
+{
+    char buff[128]{0};
+    sprintf(buff,"select * from friend where myid=%u;",id);
+    int line;
+    auto conn = connPoll_.getConn();
+    std::vector<Friend> friends;
+    if(!conn->query(buff,&line)) LOG_INFO <<"\n" << conn->getError();
+    for(int i=0;i<line;i++)
+    {
+        auto ret = conn->next();
+        Friend f;
+        f.friendid_ = std::stoul(ret[1]);
+        f.remarks_ = ret[2];
+        friends.push_back(std::move(f));
+    }
+    return friends;
 }

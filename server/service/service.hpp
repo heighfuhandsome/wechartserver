@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+#include <muduo/net/Callbacks.h>
 #include <muduo/net/TcpConnection.h>
 #include <muduo/base/Timestamp.h>
 #include <json/json.h>
@@ -33,11 +34,14 @@ private:
     void addFriend(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
     void getOfflienMsg(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
     void acceptFriend(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
+    void getFriendList(const TcpConnectionPtr &ptr,Json::Value &json,muduo::Timestamp);
     
 
     //向客户端发送响应
     void sendResponse(const TcpConnectionPtr &ptr,int rescode,const char *content);
     void sendResponse(const TcpConnectionPtr &ptr,int rescode,Json::Value &content);
+    //判断用户是否登录
+    bool userIsOnline(unsigned int id,const TcpConnectionPtr &ptr);
     
     Usermodel userModel_;
     Friendmodel friendmodel_;
